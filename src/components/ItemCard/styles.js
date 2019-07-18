@@ -27,8 +27,7 @@ export default {
     width: 100,
     height: 100,
     borderTopRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    backgroundColor: "yellow"
+    borderBottomLeftRadius: 10
   },
   titleStyle: {
     color: "black",
@@ -46,12 +45,5 @@ export default {
     flexDirection: "row",
     marginTop: 10,
     backgroundColor: "#F1F2F4"
-  },
-  starsAndIssuesContainer: {
-    height: "80%",
-    borderRadius: 10,
-    padding: 5,
-    marginVertical: 4,
-    backgroundColor: "white"
   }
 };

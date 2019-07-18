@@ -1,14 +1,24 @@
 import React, { Component } from "react";
+import moment from "moment";
 import { View, Text, ImageBackground } from "react-native";
 import styles from "./styles";
 
 class ItemCard extends Component {
   render() {
+    const { items } = this.props;
+    const date = moment(items.created_at).format("YYYY-MM-DD");
     return (
       <View style={styles.mainContainer}>
         <View style={styles.containerStyle}>
           <View style={{ flexDirection: "row" }}>
-            <ImageBackground style={styles.imageContainer} />
+            <ImageBackground
+              style={styles.imageContainer}
+              resizeMode="cover"
+              source={{
+                uri: `${items.owner.avatar_url}`,
+                cache: "force-cache"
+              }}
+            />
             <View style={styles.infoContainer}>
               <View style={{ flex: 0.3, marginTop: 20 }}>
                 <Text
@@ -16,7 +26,7 @@ class ItemCard extends Component {
                   numberOfLines={1}
                   ellipsizeMode="tail"
                 >
-                  Repository name
+                  {items.name}
                 </Text>
               </View>
               <View style={{ flex: 0.4, marginRight: 4 }}>
@@ -25,7 +35,7 @@ class ItemCard extends Component {
                   numberOfLines={2}
                   ellipsizeMode="tail"
                 >
-                  This is a description
+                  {items.description}
                 </Text>
               </View>
             </View>
@@ -39,7 +49,9 @@ class ItemCard extends Component {
                 }
               ]}
             >
-              <Text style={styles.textRatingStyle}>Stars:120</Text>
+              <Text style={styles.textRatingStyle}>
+                Stars:{items.stargazers_count}
+              </Text>
             </View>
             <View
               style={[
@@ -49,7 +61,9 @@ class ItemCard extends Component {
                 }
               ]}
             >
-              <Text style={styles.textRatingStyle}>Issues:11</Text>
+              <Text style={styles.textRatingStyle}>
+                Issues:{items.open_issues_count}
+              </Text>
             </View>
             <View style={{ justifyContent: "center", alignItems: "center" }}>
               <Text
@@ -61,7 +75,8 @@ class ItemCard extends Component {
                 numberOfLines={2}
                 ellipsizeMode="tail"
               >
-                Submitted 30 days ago by ...
+                Submitted {moment().diff(date, "days")} days ago by{" "}
+                {items.owner.login}
               </Text>
             </View>
           </View>
