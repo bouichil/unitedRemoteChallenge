@@ -42,24 +42,28 @@ class ItemCard extends Component {
           </View>
           <View style={styles.ratingContainerStyle}>
             <View
-              style={[
-                styles.starsAndIssuesContainer,
-                {
-                  marginLeft: 6
-                }
-              ]}
+              style={{
+                height: "80%",
+                borderRadius: 10,
+                marginTop: 4,
+                marginLeft: 6,
+                padding: 5,
+                backgroundColor: "white"
+              }}
             >
               <Text style={styles.textRatingStyle}>
                 Stars:{items.stargazers_count}
               </Text>
             </View>
             <View
-              style={[
-                styles.starsAndIssuesContainer,
-                {
-                  marginHorizontal: 6
-                }
-              ]}
+              style={{
+                height: "80%",
+                borderRadius: 10,
+                padding: 5,
+                marginTop: 4,
+                marginHorizontal: 6,
+                backgroundColor: "white"
+              }}
             >
               <Text style={styles.textRatingStyle}>
                 Issues:{items.open_issues_count}
