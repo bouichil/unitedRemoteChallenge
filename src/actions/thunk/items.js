@@ -4,10 +4,10 @@ import { getItemsList } from "../../api/itemsList";
 
 const RESOURCE = "ITEMS_LIST";
 
-export const fetchItemsList = () => (dispatch, getState) => {
+export const fetchItemsList = page => (dispatch, getState) => {
   const currentDate = new Date();
   const date = moment(currentDate.setDate(currentDate.getDate() - 30)).format(
     "YYYY-MM-DD"
   );
-  return dispatch(requestAction(getItemsList(date), RESOURCE));
+  return dispatch(requestAction(getItemsList(date, page), RESOURCE));
 };
