@@ -1,13 +1,13 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import ItemCard from "../components/ItemCard";
+import ListItems from "../components/ReposList";
 
 const RouteConfig = {
-  ItemCard: { screen: ItemCard }
+  ListItems: { screen: ListItems }
 };
 
 const stackConfig = {
-  initialRouteName: "ItemCard",
+  initialRouteName: "ListItems",
   headerMode: "none"
 };
 
